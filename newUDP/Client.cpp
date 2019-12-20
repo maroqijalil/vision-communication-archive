@@ -14,18 +14,17 @@ int main (int argc, const char **argv)
 {
     int sock, jumlahk, i=1;
     char pesan[10000];
-    const char *pesanp = argv[3];
+    const char *pesanp = argv[2];
     struct sockaddr_in alamat;
     socklen_t panjang;
     int port;
     char ip[100];
 
-    port = atoi(argv[2]);
-    strcpy(ip,argv[1]);
+    port = atoi(argv[1]);
 
-    if(argv[1]==NULL || argv[2]==NULL || argv[3]==NULL)
+    if(argv[1]==NULL || argv[2]==NULL)
     {
-        cout << "Masukkan dengan format ./execfile (alamat IP) (PORT) (pesan)" << endl;
+        cout << "Masukkan dengan format ./execfile (PORT) (pesan)" << endl;
         exit(EXIT_FAILURE);
     }
 
@@ -33,7 +32,7 @@ int main (int argc, const char **argv)
     memset(&alamat, 0, sizeof(alamat));
 
     alamat.sin_family = AF_INET;
-    alamat.sin_addr.s_addr = inet_addr(ip);
+    alamat.sin_addr.s_addr = INADDR_ANY;
     alamat.sin_port = htons(port);
     // sendto(sock, pesanp, strlen(pesanp) + 1, MSG_CONFIRM, (struct sockaddr *)&alamat, sizeof(alamat));
     // while(1)

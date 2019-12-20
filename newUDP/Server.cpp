@@ -23,12 +23,12 @@ int main (int argc, const char **argv)
     int port;
     char ip[100];
 
-    port = atoi(argv[2]);
-    strcpy(ip,argv[1]);    
+    port = atoi(argv[1]);
+    // strcpy(ip,argv[1]);    
 
-    if(argv[1]==NULL || argv[2]==NULL)
+    if(argv[1]==NULL)
     {
-        cout << "Masukkan dengan format ./execfile (alamat IP) (PORT)" << endl;
+        cout << "Masukkan dengan format ./execfile (PORT)" << endl;
         exit(EXIT_FAILURE);
     }
     
@@ -37,12 +37,12 @@ int main (int argc, const char **argv)
     memset(&alamatl, 0, sizeof(alamatl));
 
     alamat.sin_family = AF_INET;
-    alamat.sin_addr.s_addr = inet_addr(ip);
+    alamat.sin_addr.s_addr = INADDR_ANY;
     alamat.sin_port = htons(port);
 
     bind(sock, (struct sockaddr *)&alamat, sizeof(alamat));
 
-    cout << "IP: " << argv[1] << "PORT: " << port << endl;
+    cout << "PORT: " << port << endl;
     while(1)
     {
         panjang = sizeof(alamatl);
