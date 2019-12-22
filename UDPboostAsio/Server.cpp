@@ -42,7 +42,7 @@ int main()
       //   break;
 
       // string pesank2 = baca(sock);
-      cout.write(pesank.data(), 8);
+      cout.write(pesank.data(), panjang);
       cout << " " << i <<endl;
       // cout << pesank2 << endl;
 
