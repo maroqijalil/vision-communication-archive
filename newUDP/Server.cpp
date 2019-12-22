@@ -37,7 +37,7 @@ int main (int argc, const char **argv)
     memset(&alamatl, 0, sizeof(alamatl));
 
     alamat.sin_family = AF_INET;
-    alamat.sin_addr.s_addr = INADDR_ANY;
+    alamat.sin_addr.s_addr = inet_addr("192.168.43.209");
     alamat.sin_port = htons(port);
 
     bind(sock, (struct sockaddr *)&alamat, sizeof(alamat));

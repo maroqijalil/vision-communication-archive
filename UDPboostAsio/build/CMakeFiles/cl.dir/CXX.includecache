@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/maroqi/Documents/UDPboostAsio/Client.cpp
+iostream
+-
+boost/array.hpp
+-
+boost/asio.hpp
+-
+
