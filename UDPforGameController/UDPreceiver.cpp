@@ -137,25 +137,25 @@ int main()
     boost::asio::io_service io;
     udp::endpoint local_endpoint;
     udp::endpoint remote_endpoint;
-    udp::socket sock(io);
+    udp::socket socket_(io);
     boost::asio::socket_base::reuse_address option(true);
     
-    sock.open(udp::v4());
-    sock.set_option(option);
+    socket_.open(udp::v4());
+    socket_.set_option(option);
 
     remote_endpoint = udp::endpoint(boost::asio::ip::address_v4::any(), 3838);
     local_endpoint = udp::endpoint(boost::asio::ip::address_v4::any(), 3838);
-    sock.bind(local_endpoint);
+    socket_.bind(local_endpoint);
 
     while (true)
     {
-      uint8_t pesank[200];
-      boost::system::error_code perror;
-      size_t panjang;
+      uint8_t message[200];
+      boost::system::error_code error;
+      size_t m_length;
 
-      panjang = sock.receive_from(boost::asio::buffer(pesank), remote_endpoint, 0, perror);
+      m_length = socket_.receive_from(boost::asio::buffer(message), remote_endpoint, 0, error);
 
-      pRoboCupGameControlData converted_m = (pRoboCupGameControlData)pesank;
+      pRoboCupGameControlData converted_m = (pRoboCupGameControlData)message;
 
       if(converted_m->version == GAMECONTROLLER_STRUCT_VERSION)
       {
@@ -227,8 +227,8 @@ int main()
         std::cout << std::endl;
       }
 
-      if (perror && perror != boost::asio::error::message_size)
-        throw boost::system::system_error(perror);
+      if (error && error != boost::asio::error::message_size)
+        throw boost::system::system_error(error);
       
     }
   }
