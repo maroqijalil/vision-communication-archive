@@ -172,13 +172,13 @@ int main()
 
         std::cout << "Secondary State: ";
         switch (converted_m->secondaryState)
-				{
-					case STATE2_NORMAL: std::cout << "Normal" << std::endl; break;
-					case STATE2_PENALTYSHOOT: std::cout << "Penalty Shoot" << std::endl; break;
-					case STATE2_OVERTIME: std::cout << "Overtime" << std::endl; break;
-					case STATE2_TIMEOUT: std::cout << "Timeout" << std::endl; break;
-					default: std::cout << "None" << std::endl; break;
-				}
+        {
+          case STATE2_NORMAL: std::cout << "Normal" << std::endl; break;
+          case STATE2_PENALTYSHOOT: std::cout << "Penalty Shoot" << std::endl; break;
+          case STATE2_OVERTIME: std::cout << "Overtime" << std::endl; break;
+          case STATE2_TIMEOUT: std::cout << "Timeout" << std::endl; break;
+          default: std::cout << "None" << std::endl; break;
+        }
 
         std::cout << "Team Data:" << std::endl;
         
