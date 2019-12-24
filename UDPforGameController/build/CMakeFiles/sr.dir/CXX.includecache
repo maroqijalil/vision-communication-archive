@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/Server.cpp
+iostream
+-
+string
+-
+string.h
+-
+boost/array.hpp
+-
+boost/asio.hpp
+-
+boost/asio/socket_base.hpp
+-
+boost/asio/basic_datagram_socket.hpp
+-
+cstdio
+-
+
