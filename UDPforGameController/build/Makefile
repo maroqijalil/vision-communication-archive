@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont
+CMAKE_SOURCE_DIR = /home/maroqi/Downloads/jalil-job/UDPforGameController
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/build
+CMAKE_BINARY_DIR = /home/maroqi/Downloads/jalil-job/UDPforGameController/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/build/CMakeFiles /home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Downloads/jalil-job/UDPforGameController/build/CMakeFiles /home/maroqi/Downloads/jalil-job/UDPforGameController/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Downloads/jalil-job/UDPforGameController/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -163,32 +163,32 @@ Client.cpp.s:
 	$(MAKE) -f CMakeFiles/cl.dir/build.make CMakeFiles/cl.dir/Client.cpp.s
 .PHONY : Client.cpp.s
 
-Server.o: Server.cpp.o
+UDPreceiver.o: UDPreceiver.cpp.o
 
-.PHONY : Server.o
+.PHONY : UDPreceiver.o
 
 # target to build an object file
-Server.cpp.o:
-	$(MAKE) -f CMakeFiles/sr.dir/build.make CMakeFiles/sr.dir/Server.cpp.o
-.PHONY : Server.cpp.o
+UDPreceiver.cpp.o:
+	$(MAKE) -f CMakeFiles/sr.dir/build.make CMakeFiles/sr.dir/UDPreceiver.cpp.o
+.PHONY : UDPreceiver.cpp.o
 
-Server.i: Server.cpp.i
+UDPreceiver.i: UDPreceiver.cpp.i
 
-.PHONY : Server.i
+.PHONY : UDPreceiver.i
 
 # target to preprocess a source file
-Server.cpp.i:
-	$(MAKE) -f CMakeFiles/sr.dir/build.make CMakeFiles/sr.dir/Server.cpp.i
-.PHONY : Server.cpp.i
+UDPreceiver.cpp.i:
+	$(MAKE) -f CMakeFiles/sr.dir/build.make CMakeFiles/sr.dir/UDPreceiver.cpp.i
+.PHONY : UDPreceiver.cpp.i
 
-Server.s: Server.cpp.s
+UDPreceiver.s: UDPreceiver.cpp.s
 
-.PHONY : Server.s
+.PHONY : UDPreceiver.s
 
 # target to generate assembly for a file
-Server.cpp.s:
-	$(MAKE) -f CMakeFiles/sr.dir/build.make CMakeFiles/sr.dir/Server.cpp.s
-.PHONY : Server.cpp.s
+UDPreceiver.cpp.s:
+	$(MAKE) -f CMakeFiles/sr.dir/build.make CMakeFiles/sr.dir/UDPreceiver.cpp.s
+.PHONY : UDPreceiver.cpp.s
 
 # Help Target
 help:
@@ -203,9 +203,9 @@ help:
 	@echo "... Client.o"
 	@echo "... Client.i"
 	@echo "... Client.s"
-	@echo "... Server.o"
-	@echo "... Server.i"
-	@echo "... Server.s"
+	@echo "... UDPreceiver.o"
+	@echo "... UDPreceiver.i"
+	@echo "... UDPreceiver.s"
 .PHONY : help
 
 

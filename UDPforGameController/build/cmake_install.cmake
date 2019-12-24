@@ -1,4 +1,4 @@
-# Install script for directory: /home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont
+# Install script for directory: /home/maroqi/Downloads/jalil-job/UDPforGameController
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/maroqi/Downloads/jalil-job/UDPforGameController/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

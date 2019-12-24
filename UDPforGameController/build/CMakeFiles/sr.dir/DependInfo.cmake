@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/Server.cpp" "/home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/build/CMakeFiles/sr.dir/Server.cpp.o"
+  "/home/maroqi/Downloads/jalil-job/UDPforGameController/UDPreceiver.cpp" "/home/maroqi/Downloads/jalil-job/UDPforGameController/build/CMakeFiles/sr.dir/UDPreceiver.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

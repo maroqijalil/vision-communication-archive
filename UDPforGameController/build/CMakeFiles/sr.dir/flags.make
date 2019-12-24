@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/include 
+CXX_INCLUDES = -I/home/maroqi/Downloads/jalil-job/UDPforGameController/include 
 

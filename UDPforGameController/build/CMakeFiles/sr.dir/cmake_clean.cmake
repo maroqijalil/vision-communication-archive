@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/sr.dir/Server.cpp.o"
+  "CMakeFiles/sr.dir/UDPreceiver.cpp.o"
   "sr.pdb"
   "sr"
 )

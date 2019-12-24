@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/maroqi/Documents/ICHIRO2020/SocketProgramming/UDPboostAsiogameCont/Server.cpp
+/home/maroqi/Downloads/jalil-job/UDPforGameController/UDPreceiver.cpp
+boost/array.hpp
+/home/maroqi/Downloads/jalil-job/UDPforGameController/boost/array.hpp
+boost/asio.hpp
+/home/maroqi/Downloads/jalil-job/UDPforGameController/boost/asio.hpp
+boost/asio/basic_datagram_socket.hpp
+/home/maroqi/Downloads/jalil-job/UDPforGameController/boost/asio/basic_datagram_socket.hpp
+boost/asio/socket_base.hpp
+/home/maroqi/Downloads/jalil-job/UDPforGameController/boost/asio/socket_base.hpp
+cstdio
+-
 iostream
 -
 string
 -
 string.h
--
-boost/array.hpp
--
-boost/asio.hpp
--
-boost/asio/socket_base.hpp
--
-boost/asio/basic_datagram_socket.hpp
--
-cstdio
 -
 

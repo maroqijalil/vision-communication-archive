@@ -29,7 +29,7 @@ target_link_libraries(
 
 add_executable(
     sr
-    Server.cpp
+    UDPreceiver.cpp
 )
 
 target_link_libraries(
