@@ -187,55 +187,39 @@ int main()
 
         std::cout << "Team Data:" << std::endl;
         
-        switch (converted_m->teams[0].teamColour)
+        for(int j = 0; j < 2; j++)
         {
-          case TEAM_BLUE: std::cout << "  Blue Team Score: " << (int)converted_m->teams[0].score << std::endl; break;
-          case TEAM_RED: std::cout << "  Red Team Score: " << (int)converted_m->teams[0].score << std::endl; break;
-          default: std::cout << "None" << std::endl; break;
-        }
-        for (int i = 0; i < MAX_NUM_PLAYERS; i++)
-        {
-          switch (converted_m->teams[0].players[i].penalty)
+          switch (converted_m->teams[j].teamColour)
           {
-            case PENALTY_HL_TEEN_BALL_MANIPULATION: std::cout << "   Player " << i+1 << ": Ball Manipulation" << std::endl; break;
-            case PENALTY_HL_TEEN_PHYSICAL_CONTACT: std::cout << "   Player " << i+1 << ": Physical Contact" << std::endl; break;
-            case PENALTY_HL_TEEN_ILLEGAL_ATTACK: std::cout << "   Player " << i+1 << ": Illegal Attack" << std::endl; break;
-            case PENALTY_HL_TEEN_ILLEGAL_DEFENSE: std::cout << "   Player " << i+1 << ": Illegal Defense" << std::endl; break;
-            case PENALTY_HL_TEEN_REQUEST_FOR_PICKUP: std::cout << "   Player " << i+1 << ": Request for Pickup" << std::endl; break;
-            case PENALTY_HL_TEEN_REQUEST_FOR_SERVICE: std::cout << "   Player " << i+1 << ": Request for Service" << std::endl; break;
-            case PENALTY_HL_TEEN_REQUEST_FOR_PICKUP_2_SERVICE: std::cout << "   Player " << i+1 << ": Request for Pickup from Service" << std::endl; break;
-            default: break;
+            case TEAM_BLUE: std::cout << "  Blue Team Score: " << (int)converted_m->teams[j].score << std::endl; break;
+            case TEAM_RED: std::cout << "  Red Team Score: " << (int)converted_m->teams[j].score << std::endl; break;
+            default: std::cout << "None" << std::endl; break;
           }
-        }
-
-        switch (converted_m->teams[1].teamColour)
-        {
-          case TEAM_BLUE: std::cout << "  Blue Team Score: " << (int)converted_m->teams[1].score << std::endl; break;
-          case TEAM_RED: std::cout << "  Red Team Score: " << (int)converted_m->teams[1].score << std::endl; break;
-          default: std::cout << "None" << std::endl; break;
-        }
-        for (int i = 0; i < MAX_NUM_PLAYERS; i++)
-        {
-          switch (converted_m->teams[1].players[i].penalty)
+          for (int i = 0; i < MAX_NUM_PLAYERS; i++)
           {
-            case PENALTY_HL_TEEN_BALL_MANIPULATION: std::cout << "   Player " << i+1 << ": Ball Manipulation" << std::endl; break;
-            case PENALTY_HL_TEEN_PHYSICAL_CONTACT: std::cout << "   Player " << i+1 << ": Physical Contact" << std::endl; break;
-            case PENALTY_HL_TEEN_ILLEGAL_ATTACK: std::cout << "   Player " << i+1 << ": Illegal Attack" << std::endl; break;
-            case PENALTY_HL_TEEN_ILLEGAL_DEFENSE: std::cout << "   Player " << i+1 << ": Illegal Defense" << std::endl; break;
-            case PENALTY_HL_TEEN_REQUEST_FOR_PICKUP: std::cout << "   Player " << i+1 << ": Request for Pickup" << std::endl; break;
-            case PENALTY_HL_TEEN_REQUEST_FOR_SERVICE: std::cout << "   Player " << i+1 << ": Request for Service" << std::endl; break;
-            case PENALTY_HL_TEEN_REQUEST_FOR_PICKUP_2_SERVICE: std::cout << "   Player " << i+1 << ": Request for Pickup from Service" << std::endl; break;
-            default: break;
+            switch (converted_m->teams[j].players[i].penalty)
+            {
+              case PENALTY_HL_TEEN_BALL_MANIPULATION: std::cout << "   Player " << i+1 << ": Ball Manipulation" << std::endl; break;
+              case PENALTY_HL_TEEN_PHYSICAL_CONTACT: std::cout << "   Player " << i+1 << ": Physical Contact" << std::endl; break;
+              case PENALTY_HL_TEEN_ILLEGAL_ATTACK: std::cout << "   Player " << i+1 << ": Illegal Attack" << std::endl; break;
+              case PENALTY_HL_TEEN_ILLEGAL_DEFENSE: std::cout << "   Player " << i+1 << ": Illegal Defense" << std::endl; break;
+              case PENALTY_HL_TEEN_REQUEST_FOR_PICKUP: std::cout << "   Player " << i+1 << ": Request for Pickup" << std::endl; break;
+              case PENALTY_HL_TEEN_REQUEST_FOR_SERVICE: std::cout << "   Player " << i+1 << ": Request for Service" << std::endl; break;
+              case PENALTY_HL_TEEN_REQUEST_FOR_PICKUP_2_SERVICE: std::cout << "   Player " << i+1 << ": Request for Pickup from Service" << std::endl; break;
+              default: break;
+            }
           }
         }
 
         std::cout << std::endl;
+        
       }
 
       if (error && error != boost::asio::error::message_size)
         throw boost::system::system_error(error);
       
     }
+    
   }
   catch (std::exception& e)
   {
