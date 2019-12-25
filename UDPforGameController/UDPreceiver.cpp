@@ -186,7 +186,6 @@ int main()
         }
 
         std::cout << "Team Data:" << std::endl;
-        
         for(int j = 0; j < 2; j++)
         {
           switch (converted_m->teams[j].teamColour)
