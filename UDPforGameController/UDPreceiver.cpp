@@ -158,9 +158,7 @@ int main()
 
       m_length = socket_.receive_from(boost::asio::buffer(c_message), remote_endpoint, 0, error);
 
-      char *message = (char *)c_message;
-
-      pRoboCupGameControlData *converted_m = (pRoboCupGameControlData *)message;
+      pRoboCupGameControlData *converted_m = (pRoboCupGameControlData *)c_message;
 
       if(converted_m->version == GAMECONTROLLER_STRUCT_VERSION)
       {
