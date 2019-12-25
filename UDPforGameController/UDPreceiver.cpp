@@ -95,14 +95,16 @@ enum
   PENALTY_MANUAL = 15
 };
 
-struct RobotInfo
+class RobotInfo
 {
+public :
   uint8_t penalty;
   uint8_t secsTillUnpenalised;
 };
 
-struct TeamInfo
+class TeamInfo
 {
+public :
   uint8_t teamNumber;
   uint8_t teamColour;
   uint8_t score;
@@ -113,8 +115,9 @@ struct TeamInfo
   RobotInfo players[MAX_NUM_PLAYERS];
 };
 
-typedef struct
+class pRoboCupGameControlData
 {
+public :
   uint32_t header;
   uint8_t version;
   uint8_t packetNumber;
@@ -128,7 +131,7 @@ typedef struct
   uint16_t secsRemaining;
   uint16_t secondaryTime;
   TeamInfo teams[2];
-} RoboCupGameControlData, *pRoboCupGameControlData;
+};
 
 int main()
 {
@@ -149,13 +152,15 @@ int main()
 
     while (true)
     {
-      uint8_t message[200];
+      uint8_t c_message[200];
       boost::system::error_code error;
       size_t m_length;
 
-      m_length = socket_.receive_from(boost::asio::buffer(message), remote_endpoint, 0, error);
+      m_length = socket_.receive_from(boost::asio::buffer(c_message), remote_endpoint, 0, error);
 
-      pRoboCupGameControlData converted_m = (pRoboCupGameControlData)message;
+      char *message = (char *)c_message;
+
+      pRoboCupGameControlData *converted_m = (pRoboCupGameControlData *)message;
 
       if(converted_m->version == GAMECONTROLLER_STRUCT_VERSION)
       {
