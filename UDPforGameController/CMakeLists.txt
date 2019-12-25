@@ -18,16 +18,6 @@ include_directories(
 )
 
 add_executable(
-    cl
-    Client.cpp
-)
-
-target_link_libraries(
-    cl
-    ${Boost_LIBRARIES}
-)
-
-add_executable(
     sr
     UDPreceiver.cpp
 )
