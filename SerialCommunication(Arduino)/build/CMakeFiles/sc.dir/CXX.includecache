@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/SerialCommunication.cpp
+boost/array.hpp
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/boost/array.hpp
+boost/asio.hpp
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/boost/asio.hpp
+boost/thread.hpp
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/boost/thread.hpp
+vector
+-
+iostream
+-
+

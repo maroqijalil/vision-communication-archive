@@ -1,0 +1,3 @@
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/build/CMakeFiles/rebuild_cache.dir
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/build/CMakeFiles/sc.dir
+/home/maroqi/Downloads/jalil-job/SerialCommunication(Arduino)/build/CMakeFiles/edit_cache.dir
