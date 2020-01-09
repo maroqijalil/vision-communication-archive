@@ -2,8 +2,8 @@
 #include "boost/asio.hpp"
 #include "boost/thread.hpp"
 
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 using namespace boost::asio;
@@ -19,9 +19,9 @@ void read_command(serial_port& serial_port)
     
     for(size_t i = 0; i < length; ++i)
     {
-      cout << buffer[i] << flush;
+      cout << (buffer[i]) << flush;
 
-      boost::this_thread::sleep_for(boost::chrono::seconds(1));
+      boost::this_thread::sleep_for(boost::chrono::milliseconds(50));
     }
   }
 }
@@ -57,13 +57,18 @@ int main(int argc, char* argv[])
     serial_port.set_option(boost::asio::serial_port_base::baud_rate(9600));
 
     if(argv[1]==NULL)
+    {
       cout << "Enter the command such as following format: ./sc <command option>" << endl;
+    }
 
     if(!strcmp(argv[1], "read"))
+    {
       read_command(serial_port);
+    }
     else if(!strcmp(argv[1], "write"))
+    {
       write_command(serial_port);
-
+    }
   }
   catch(exception& e)
   {

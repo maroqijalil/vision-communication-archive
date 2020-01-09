@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hiro/framework/project/test/scCM(Boost).cpp
+boost/array.hpp
+/home/hiro/framework/project/test/boost/array.hpp
+boost/asio.hpp
+/home/hiro/framework/project/test/boost/asio.hpp
+boost/thread.hpp
+/home/hiro/framework/project/test/boost/thread.hpp
+vector
+-
+iostream
+-
+stdio.h
+-
+
