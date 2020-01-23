@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/maroqi/Documents/jalil-job/visionOpenCV
+CMAKE_SOURCE_DIR = /home/maroqi/Documents/jalil-job/visionV4L
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/maroqi/Documents/jalil-job/visionOpenCV/build
+CMAKE_BINARY_DIR = /home/maroqi/Documents/jalil-job/visionV4L/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Documents/jalil-job/visionOpenCV/build/CMakeFiles /home/maroqi/Documents/jalil-job/visionOpenCV/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Documents/jalil-job/visionV4L/build/CMakeFiles /home/maroqi/Documents/jalil-job/visionV4L/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Documents/jalil-job/visionOpenCV/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maroqi/Documents/jalil-job/visionV4L/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,84 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named cam
+# Target rules for targets named lap
 
 # Build rule for target.
-cam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cam
-.PHONY : cam
+lap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lap
+.PHONY : lap
 
 # fast build rule for target.
-cam/fast:
-	$(MAKE) -f CMakeFiles/cam.dir/build.make CMakeFiles/cam.dir/build
-.PHONY : cam/fast
+lap/fast:
+	$(MAKE) -f CMakeFiles/lap.dir/build.make CMakeFiles/lap.dir/build
+.PHONY : lap/fast
 
-#=============================================================================
-# Target rules for targets named cam2
+lap.o: lap.cpp.o
 
-# Build rule for target.
-cam2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cam2
-.PHONY : cam2
-
-# fast build rule for target.
-cam2/fast:
-	$(MAKE) -f CMakeFiles/cam2.dir/build.make CMakeFiles/cam2.dir/build
-.PHONY : cam2/fast
-
-cam.o: cam.cpp.o
-
-.PHONY : cam.o
+.PHONY : lap.o
 
 # target to build an object file
-cam.cpp.o:
-	$(MAKE) -f CMakeFiles/cam.dir/build.make CMakeFiles/cam.dir/cam.cpp.o
-.PHONY : cam.cpp.o
+lap.cpp.o:
+	$(MAKE) -f CMakeFiles/lap.dir/build.make CMakeFiles/lap.dir/lap.cpp.o
+.PHONY : lap.cpp.o
 
-cam.i: cam.cpp.i
+lap.i: lap.cpp.i
 
-.PHONY : cam.i
-
-# target to preprocess a source file
-cam.cpp.i:
-	$(MAKE) -f CMakeFiles/cam.dir/build.make CMakeFiles/cam.dir/cam.cpp.i
-.PHONY : cam.cpp.i
-
-cam.s: cam.cpp.s
-
-.PHONY : cam.s
-
-# target to generate assembly for a file
-cam.cpp.s:
-	$(MAKE) -f CMakeFiles/cam.dir/build.make CMakeFiles/cam.dir/cam.cpp.s
-.PHONY : cam.cpp.s
-
-cam2.o: cam2.cpp.o
-
-.PHONY : cam2.o
-
-# target to build an object file
-cam2.cpp.o:
-	$(MAKE) -f CMakeFiles/cam2.dir/build.make CMakeFiles/cam2.dir/cam2.cpp.o
-.PHONY : cam2.cpp.o
-
-cam2.i: cam2.cpp.i
-
-.PHONY : cam2.i
+.PHONY : lap.i
 
 # target to preprocess a source file
-cam2.cpp.i:
-	$(MAKE) -f CMakeFiles/cam2.dir/build.make CMakeFiles/cam2.dir/cam2.cpp.i
-.PHONY : cam2.cpp.i
+lap.cpp.i:
+	$(MAKE) -f CMakeFiles/lap.dir/build.make CMakeFiles/lap.dir/lap.cpp.i
+.PHONY : lap.cpp.i
 
-cam2.s: cam2.cpp.s
+lap.s: lap.cpp.s
 
-.PHONY : cam2.s
+.PHONY : lap.s
 
 # target to generate assembly for a file
-cam2.cpp.s:
-	$(MAKE) -f CMakeFiles/cam2.dir/build.make CMakeFiles/cam2.dir/cam2.cpp.s
-.PHONY : cam2.cpp.s
+lap.cpp.s:
+	$(MAKE) -f CMakeFiles/lap.dir/build.make CMakeFiles/lap.dir/lap.cpp.s
+.PHONY : lap.cpp.s
 
 # Help Target
 help:
@@ -196,16 +156,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... cam"
 	@echo "... rebuild_cache"
-	@echo "... cam2"
-	@echo "... cam.o"
-	@echo "... cam.i"
-	@echo "... cam.s"
-	@echo "... cam2.o"
-	@echo "... cam2.i"
-	@echo "... cam2.s"
+	@echo "... lap"
+	@echo "... edit_cache"
+	@echo "... lap.o"
+	@echo "... lap.i"
+	@echo "... lap.s"
 .PHONY : help
 
 

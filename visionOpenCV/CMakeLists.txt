@@ -15,3 +15,13 @@ target_link_libraries(
     cam
     ${OpenCV_LIBRARIES}
 )
+
+add_executable(
+    cam2
+    cam2.cpp
+)
+
+target_link_libraries(
+    cam2
+    ${OpenCV_LIBRARIES}
+)

@@ -11,7 +11,7 @@ int main( int argc, char** argv )
 {
   VideoCapture cap(0);
 
-  Mat frame, frame_HSV, frame_gray, frame_threshold,frame_threshold1,frame_bit;
+  Mat frame, frame_HSV, frame_bit, frame_threshold;
   while (cap.read(frame)) {
 
     if(frame.empty())
