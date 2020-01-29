@@ -14,6 +14,8 @@ int main( int argc, char** argv )
   Mat frame;
   // Mat frame2;
 
+  cap.set(CAP_PROP_AUTO_EXPOSURE, 0.25);
+  
   cap.set(CAP_PROP_FRAME_WIDTH, 320);
   cap.set(CAP_PROP_FRAME_HEIGHT, 240);
   cap.set(CAP_PROP_BRIGHTNESS, 100);
