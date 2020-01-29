@@ -1,0 +1,4 @@
+camera:
+  device_name: /dev/video0
+  frame_width: 160
+  frame_height: 120
