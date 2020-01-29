@@ -1,0 +1,3 @@
+/home/maroqi/Documents/jalil-job/visionV4L/build/CMakeFiles/rebuild_cache.dir
+/home/maroqi/Documents/jalil-job/visionV4L/build/CMakeFiles/lap.dir
+/home/maroqi/Documents/jalil-job/visionV4L/build/CMakeFiles/edit_cache.dir
