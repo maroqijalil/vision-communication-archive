@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"?>
+<package format="3">
+  <name>kuro_dynamixel</name>
+  <version>0.0.0</version>
+  <description>Kuro Dynamixel Package</description>
+  <maintainer email="alfi.maulana.f@gmail.com">Alfi Maulana</maintainer>
+  <license>Apache License 2.0</license>
+  <author>Alfi Maulana</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>kuro_cmake</buildtool_depend>
+
+  <depend>kuro_interface</depend>
+  <depend>kuro_utility</depend>
+  <depend>rclcpp</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
