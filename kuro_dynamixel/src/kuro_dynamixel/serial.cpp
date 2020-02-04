@@ -5,7 +5,7 @@ using namespace kuro_dynamixel;
 Serial::Serial() :
   Shareable<Serial>(),
   Processable(),
-  _port_name("/dev/ttyUSB0"),
+  _port_name("cm740"),
   _baudrate(1000000),
   _io_service(),
   _serial_port(_io_service)
