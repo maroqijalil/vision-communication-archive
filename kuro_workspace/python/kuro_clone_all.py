@@ -50,7 +50,7 @@ for package in pkg.packages:
     try:
       repo = pkg.masterCloneRepo(package)
     except Exception as e:
-      io.println(io.Fail(), "cold not clone the", args.package)
+      io.println(io.Fail(), "could not clone the", args.package)
       io.println(e)
       continue
 
