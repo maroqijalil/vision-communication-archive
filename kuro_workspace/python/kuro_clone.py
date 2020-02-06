@@ -47,7 +47,7 @@ if args.branch == 'master' and not avaliable_pkg:
   try:
     repo = pkg.masterCloneRepo(args.package)
   except Exception as e:
-    io.println(io.Fail(), "cold not clone the", args.package)
+    io.println(io.Fail(), "could not clone the", args.package)
     io.println(e)
     io.exitFail()
 elif not args.branch == 'master' and not avaliable_pkg:
@@ -55,7 +55,7 @@ elif not args.branch == 'master' and not avaliable_pkg:
   try:
     repo = pkg.cloneRepo(args.package, args.branch)
   except Exception as e:
-    io.println(io.Fail(), "cold not clone the", args.package)
+    io.println(io.Fail(), "could not clone the", args.package)
     io.println(e)
     io.exitFail()
 
