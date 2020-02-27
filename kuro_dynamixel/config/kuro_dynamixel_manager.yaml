@@ -1,0 +1,69 @@
+serial:
+  port_name: /dev/ttyUSB0
+  baud_rate: 1000000
+body_joints:
+  head:
+    neck_yaw:
+      id: 19
+      inverted: true
+    neck_pitch:
+      id: 20
+      inverted: false
+  left_arm:
+    shoulder_pitch:
+      id: 2
+      inverted: true
+    shoulder_roll:
+      id: 4
+      inverted: true
+    elbow:
+      id: 6
+      inverted: true
+  right_arm:
+    shoulder_pitch:
+      id: 1
+      inverted: false
+    shoulder_roll:
+      id: 3
+      inverted: false
+    elbow:
+      id: 5
+      inverted: false
+  left_leg:
+    hip_yaw:
+      id: 8
+      inverted: true
+    hip_roll:
+      id: 10
+      inverted: true
+    hip_pitch:
+      id: 12
+      inverted: false
+    knee:
+      id: 14
+      inverted: false
+    ankle_pitch:
+      id: 16
+      inverted: true
+    ankle_roll:
+      id: 18
+      inverted: false
+  right_leg:
+    hip_yaw:
+      id: 7
+      inverted: false
+    hip_roll:
+      id: 9
+      inverted: false
+    hip_pitch:
+      id: 11
+      inverted: true
+    knee:
+      id: 13
+      inverted: true
+    ankle_pitch:
+      id: 15
+      inverted: false
+    ankle_roll:
+      id: 17
+      inverted: true
