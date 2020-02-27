@@ -151,7 +151,6 @@ const Serial::Packet &Serial::getReadPacket() const
 // nonblocking read
 bool Serial::asyncRead()
 {
-  std::vector<unsigned char> read_bytes;
   std::vector<unsigned char> bytes(1);
 
   _io_service.reset();
