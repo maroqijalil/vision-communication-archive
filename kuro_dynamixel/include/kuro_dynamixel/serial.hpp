@@ -34,16 +34,10 @@ namespace kuro_dynamixel
 
     bool write(const Packet &packet);
     bool read();
-
-    // nonblocking read
-    bool asyncRead();
-    void read_callback(bool& data_available, boost::asio::deadline_timer& timeout, const boost::system::error_code& error, std::size_t bytes_transferred);
-    void wait_callback(boost::asio::serial_port& ser_port, const boost::system::error_code& error);
-
-    // blocking read
+    
     void read_complete(const boost::system::error_code& error, size_t bytes_transferred);
     void time_out(const boost::system::error_code& error);
-    bool read_char(char& val);
+    bool read_char(unsigned char& byte);
 
     bool isPacketRead();
 
@@ -54,15 +48,12 @@ namespace kuro_dynamixel
     std::string _port_name;
     int _baud_rate;
 
-    boost::asio::deadline_timer _timeout;
-    bool data_available = false;
-
     boost::asio::io_service _io_service;
     boost::asio::serial_port _serial_port;
 
-    // size_t timeout;
-    // boost::asio::deadline_timer _timer;
-    // bool read_error = true;
+    std::size_t timeout;
+    boost::asio::deadline_timer _timer;
+    bool read_error = true;
 
     bool _is_packet_read;
 

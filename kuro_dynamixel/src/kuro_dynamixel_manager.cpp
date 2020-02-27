@@ -72,9 +72,20 @@ int main(int argc, char **argv)
 
   sleep(1);
 
-  WritePacket broadcast_torque_enable_packet(Packet::BroadcastId);
-  broadcast_torque_enable_packet.data.emplace(24, 1);
-  serial.write(broadcast_torque_enable_packet);
+  Cli::print("write torque enable, one by one");
+  std::vector<WritePacket*> torque_enable;
+  torque_enable.resize(22);
+  for (int i = 0; i < 22; ++i)
+  {
+    torque_enable[i] = new WritePacket(i+1);
+    torque_enable[i]->data.emplace(24, 1);
+    printf("write torque %d\n", i+1);
+    serial.write(*torque_enable[i]);
+  }
+
+  // WritePacket broadcast_torque_enable_packet(Packet::BroadcastId);
+  // broadcast_torque_enable_packet.data.emplace(24, 1);
+  // serial.write(broadcast_torque_enable_packet);
 
   Cli::print("spin");
   while (rclcpp::ok())

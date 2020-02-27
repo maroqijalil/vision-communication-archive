@@ -14,8 +14,8 @@ Serial::Serial()
     _is_packet_read(false),
     _read_packet(),
 
-    _timeout(_io_service),
-    // _timer(_io_service)
+    _timer(_io_service),
+    timeout(50)
 {
 }
 
@@ -110,26 +110,36 @@ bool Serial::read()
     return false;
 
   std::vector<unsigned char> read_bytes;
-  std::vector<unsigned char> bytes(4);
+  bool read_state = true;
+  std::size_t i = 0;
 
-  while (bytes.size() > 0)
+  while (read_state)
   {
-    auto read = boost::asio::read(_serial_port, boost::asio::buffer(bytes));
+    read_bytes.resize(read_bytes.size() + 1);
 
-    read_bytes.resize(read_bytes.size() + read);
-    for (unsigned int i = 0; i < (unsigned)read; ++i)
-      read_bytes[read_bytes.size() - read + i] = bytes[i];
-    bytes.resize(bytes.size() - read);
+    read_state = read_char(read_bytes[i++]);
+  }
 
-    if (read_bytes.size() >= 4)
-    {
-      if (read_bytes[3] + (unsigned)4 != read_bytes.size() + bytes.size())
-        bytes.resize(read_bytes[3] + 4 - read_bytes.size());
-    }
+  unsigned char checksum = 0x00;
+  for (i = 2; i < read_bytes.size() - 2; ++i)
+    checksum += read_bytes[i];
+  read_bytes[read_bytes.size() - 1] = ~checksum;
+
+  if (read_bytes.size() >= 4)
+  {
+    for (auto byte : read_bytes)
+      printf("%2X ", byte);
+    printf("\n");
+  }
+  else
+  {
+    printf("failed!!!\n");
+
+    return false;
   }
 
   _is_packet_read = true;
-  _read_packet = bytes;
+  _read_packet = read_bytes;
 
   return true;
 }
@@ -148,93 +158,42 @@ const Serial::Packet &Serial::getReadPacket() const
   return _read_packet;
 }
 
-// nonblocking read
-bool Serial::asyncRead()
+void Serial::read_complete(const boost::system::error_code& error, size_t bytes_transferred)
 {
-  std::vector<unsigned char> bytes(1);
-
-  _io_service.reset();
-
-  data_available = false;
-
-  _serial_port.async_read_some(boost::asio::buffer(bytes),
-    boost::bind(&Serial::read_callback, boost::ref(data_available),
-    boost::ref(_timeout), boost::asio::placeholders::error,
-    boost::asio::placeholders::bytes_transferred));
-  _timeout.expires_from_now(boost::posix_time::milliseconds(1000));
-  _timeout.async_wait(boost::bind(&Serial::wait_callback,
-    boost::ref(_serial_port), boost::asio::placeholders::error));
-
-  _io_service.run();
-
-  if (!data_available)
-  {
-    // kick_start_the_device();
-    return false;
-  }
-  else
-    return true;  
+  read_error = (error || bytes_transferred == 0);
+  
+  _timer.cancel();
 }
 
-void Serial::read_callback(bool& data_available, boost::asio::deadline_timer& timeout, const boost::system::error_code& error, std::size_t bytes_transferred)
-{
-  if (error || !bytes_transferred)
-  {
-    data_available = false;
-    return;
-  }
-
-  timeout.cancel();
-  data_available = true;
-}
-
-void Serial::wait_callback(boost::asio::serial_port& ser_port, const boost::system::error_code& error)
+void Serial::time_out(const boost::system::error_code& error)
 {
   if (error)
     return;
-
-  ser_port.cancel();
+  
+  _serial_port.cancel();
 }
 
+bool Serial::read_char(unsigned char& byte)
+{
+  unsigned char c = '\0';
 
-// // blocking read
-// void Serial::read_complete(const boost::system::error_code& error, size_t bytes_transferred)
-// {
-//   read_error = (error || bytes_transferred == 0);
-  
-//   _timer.cancel();
-// }
+  byte = c;
 
-// void Serial::time_out(const boost::system::error_code& error)
-// {
-//   if (error)
-//     return;
+  _io_service.reset();
 
-//   _serial_port.cancel();
-// }
+  boost::asio::async_read(_serial_port, boost::asio::buffer(&c, 1), 
+    boost::bind(&Serial::read_complete, this, 
+    boost::asio::placeholders::error,
+    boost::asio::placeholders::bytes_transferred)); 
 
-// bool Serial::read_char(char& val)
-// {
-//   char c;
+  _timer.expires_from_now(boost::posix_time::milliseconds(timeout));
+  _timer.async_wait(boost::bind(&Serial::time_out,
+    this, boost::asio::placeholders::error));
 
-//   val = c = '\0';
+  _io_service.run();
 
-//   _io_service.reset();
+  if (!read_error)
+    byte = c;
 
-//   boost::asio::async_read(_serial_port, boost::asio::buffer(&c, 1), 
-//   boost::bind(&Serial::read_complete, 
-//   this, 
-//   boost::asio::placeholders::error, 
-//   boost::asio::placeholders::bytes_transferred)); 
-
-//   _timer.expires_from_now(boost::posix_time::milliseconds(timeout));
-//   _timer.async_wait(boost::bind(&Serial::time_out,
-//   this, boost::asio::placeholders::error));
-
-//   _io_service.run();
-
-//   if (!read_error)
-//     val = c;
-
-//   return !read_error;
-// }
+  return !read_error;
+}
