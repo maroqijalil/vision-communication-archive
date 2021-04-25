@@ -34,18 +34,18 @@ int main (int argc, const char **argv)
     alamat.sin_family = AF_INET;
     alamat.sin_addr.s_addr = INADDR_ANY;
     alamat.sin_port = htons(port);
-    // sendto(sock, pesanp, strlen(pesanp) + 1, MSG_CONFIRM, (struct sockaddr *)&alamat, sizeof(alamat));
-    // while(1)
-    // {
-        // cout << "Masukkan pesan: ";
-        // cin >> pesanp;
+    sendto(sock, pesanp, strlen(pesanp) + 1, MSG_CONFIRM, (struct sockaddr *)&alamat, sizeof(alamat));
+    while(1)
+    {
+        cout << "Masukkan pesan: ";
+        cin >> pesanp;
 
         sendto(sock, (const char *)pesanp, strlen(pesanp) + 1, MSG_CONFIRM, (struct sockaddr *)&alamat, sizeof(alamat));
         
         jumlahk = recvfrom(sock, pesan, sizeof(pesan), MSG_WAITALL, (struct sockaddr *)&alamat, &panjang);
         pesan[jumlahk] = '\0';
         cout << "Balasan: " << pesan << endl;
-    // }
+    }
 
     close(sock);
     return 0;
